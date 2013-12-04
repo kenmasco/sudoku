@@ -1,10 +1,35 @@
 class Grid
-  def initialize(initial_value)
-    @cells = initial_value.split
+  attr_accessor :cells
+
+  def initialize(initial_values)
+    @cells = initial_values.split('').map {|i| Cell.new(i.to_i)}
   end
 
-  attr_reader :cells
+  def row
+    rows = []
+    cells.each_slice(9) { |row| rows << row }
+    rows
+  end
+
+  def column
+    row.transpose
+  end
+
+  def which_row(cell_number)
+    cell_number / 9
+  end
+
+  def which_column(cell_number)
+    cell_number % 9
+  end
+
+  def which_box(cell_number)
+    3 * (which_row(cell_number) / 3) + (which_column(cell_number) / 3)
+  end
 end
+
+
+
 
 #   def solve
 #     outstanding_before, looping = SIZE, false
@@ -23,6 +48,5 @@ end
 #   def inspect
 #     #iterate over all cells and print the grid
 #   end
-# end
 
 
