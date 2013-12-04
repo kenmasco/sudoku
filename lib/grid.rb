@@ -26,6 +26,16 @@ class Grid
   def which_box(cell_number)
     3 * (which_row(cell_number) / 3) + (which_column(cell_number) / 3)
   end
+
+  def box_row_position(cell_number)
+    which_box(cell_number) / 3
+  end
+
+  def first_row_of_box(cell_number)
+    box_row_position(cell_number) * 3
+  end
+
+
 end
 
 

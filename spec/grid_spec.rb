@@ -50,6 +50,22 @@ describe Grid do
       expect(grid.which_box(27)).to eq(3)
       expect(grid.which_box(78)).to eq(8)
     end
+
+    it "should know which box row a box is in" do
+      expect(grid.box_row_position(24)).to eq(0)
+      expect(grid.box_row_position(27)).to eq(1)
+      expect(grid.box_row_position(78)).to eq(2)
+    end
+
+    it "should know the first row of any box" do
+      expect(grid.first_row_of_box(6)).to eq(0)
+      expect(grid.first_row_of_box(30)).to eq(3)
+      expect(grid.first_row_of_box(54)).to eq(6)
+    end
+
+    it "should know the first column of any box" do
+    end
+
   end
 
   context "solving" do
