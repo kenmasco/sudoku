@@ -4,6 +4,7 @@ class Cell
   
   def initialize(value=0)
     @value = value
+    # @index = 
   end
 
   def filled_out?
@@ -18,4 +19,5 @@ class Cell
     values = possible_values(neighbours)
     @value = values.first if values.length == 1
   end
+
 end
